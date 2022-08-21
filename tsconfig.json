@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "lib": [
+      "es6",
+      "dom",
+      "dom.iterable"
+    ],
+    "downlevelIteration": true,
+    "rootDir": "src",
+    "moduleResolution": "node"
+  }
+}
