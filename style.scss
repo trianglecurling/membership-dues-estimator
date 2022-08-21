@@ -1,0 +1,140 @@
+body {
+  font-family: sans-serif;
+  background-color: #fff;
+}
+
+#estimator {
+  border-radius: 16px;
+
+  ul {
+    margin-top: 0;
+  }
+
+  h2,h3 {
+    color: #1a147c;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  h2 {
+    font-weight: bold;
+  }
+  h3 {
+    font-weight: normal;
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  #fallBox, #winterBox, #discountBox {
+    background-color: #fff;
+    padding: 16px 0;
+    margin-top: 16px;
+  }
+
+  #fallMembershipBox, #fallIceBox, #winterMembershipBox, #winterIceBox, #estimatedDues, #benefits {
+    margin-top: 16px;
+  }
+
+  .slider-button {
+    margin-top: 4px;
+    // background-color: #eee;
+    // box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.4);
+    // border-radius: 100px;
+    // padding: 8px;
+    display: inline-block;
+
+    .divider {
+      margin-right: 6px;
+      margin-left: 2px;
+      border-left: 1px solid #555;
+    }
+
+    &.disabled {
+      opacity: 0.35;
+      cursor: not-allowed !important;
+
+      button {
+        pointer-events: none;
+        cursor: not-allowed;
+        transition: none;
+
+        &.selected,&.implied {
+          border: 1px solid transparent;
+          background-color: #eee;
+          color: #000;
+        }
+
+        &.selected-when-disabled {
+          border: 1px solid #000;
+          background-color: #01b9ba;
+        }
+      }
+    }
+
+    button {
+      box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.25);
+      background-color: #ddd;
+      border: 2px solid transparent;
+      border-radius: 100px;
+      margin-right: 4px;
+      margin-top: 4px;
+      font-size: 16px;
+      height: 38px;
+      padding: 0 12px;
+      cursor: pointer;
+      transition: background-color 0.4s;
+
+      &:hover {
+          background-color: #bbb;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.implied {
+        background-color: #b6f4f5;
+      }
+      &.selected {
+        border: 2px solid #000;
+        background-color: #01b9ba;
+        box-shadow: none;
+        color: #fff;
+      }
+    }
+  }
+
+  .estimated-dues-seasons {
+    display: flex;
+    .dues-box {
+      margin-right: 32px;
+      margin-top: 12px;
+    
+      &:last-child {
+        margin-right: 0;
+      }
+
+      >div {
+        margin-top: 6px;
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+
+        .item-name {
+          flex-grow: 1;
+          margin-right: 32px;
+        }
+        &:not(:last-child)::before {
+          content: "•";
+          margin-right: 6px;
+        }
+      }
+      .amount {
+        font-weight: bold;
+      }
+    }
+  }
+  .grand-total-box {
+    font-weight: bold;
+    margin-top: 12px;
+  }
+}
