@@ -794,7 +794,7 @@ fallMembershipSlider = sliderButton(
   })
 );
 winterMembershipSlider = sliderButton(
-  ["Regular", "Social", "Social + dues"],
+  ["Regular", "Social", "Social + dues", "None"],
   "Regular",
   false,
   getSliderHandler(getCostParams, "membership", "winter", (buttonText) => {
