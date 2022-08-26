@@ -86,7 +86,7 @@ const benefits = {
   nameTag: "Name tag (for new members only)",
   social: "Access to Triangle Curling membership online social groups",
   agm:
-    "Attendance the Annual General Meeting and end-of-season celebration and board meetings",
+    "Attendance to the Annual General Meeting and end-of-season celebration and board meetings",
   bartending: "Ability to volunteer as a bartender",
   dues:
     "Dues paid on your behalf to USA Curling, GNCC, and USWCA (as applicable)",
