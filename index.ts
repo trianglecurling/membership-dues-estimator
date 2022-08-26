@@ -539,12 +539,18 @@ function setCarts(getCostParams: GetCostParams) {
   const grandTotalCost = document.createElement("div");
   grandTotalBox.append(grandTotalName, grandTotalCost);
   grandTotalName.append("Grand total");
-  grandTotalCost.append(formatCurrency(grandTotal));
+  const grandTotalPrice = document.createElement("span");
+  grandTotalPrice.classList.add("price");
+  grandTotalPrice.append(formatCurrency(grandTotal));
+  grandTotalCost.append(
+    grandTotalPrice,
+    " - due in two separate payments shown below"
+  );
 
   const estimatedDuesSeasons = document.createElement("div");
   estimatedDuesSeasons.classList.add("estimated-dues-seasons");
   estimatedDuesSeasons.append(fallDues, winterDues);
-  estimatedDues?.replaceChildren(estimatedDuesSeasons, grandTotalBox);
+  estimatedDues?.replaceChildren(grandTotalBox, estimatedDuesSeasons);
 
   // Benefits section
   const annualBenefitsBox = document.createElement("div");
