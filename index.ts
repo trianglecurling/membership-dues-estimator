@@ -101,7 +101,8 @@ const benefits = {
   rentals: "Discounted rates on private rentals",
   clubSpiel:
     "Ability to participate in the Triangle Club Bonspiel (usually in March/April)",
-  leagues: "Participate in <NUM> <PLURAL_LEAGUE>"
+  leagues: "Participate in <NUM> <PLURAL_LEAGUE>",
+  none: "Adjust your selection above to see benefits"
 };
 
 function getBenefits(
@@ -149,6 +150,10 @@ function getBenefits(
 
   if (fallIce || winterIce) {
     annual.push("clubSpiel");
+  }
+
+  if (fallCart.getTotal() === 0 && winterCart.getTotal() === 0) {
+    annual.push("none");
   }
 
   if (fallIce) {
@@ -542,10 +547,13 @@ function setCarts(getCostParams: GetCostParams) {
   const grandTotalPrice = document.createElement("span");
   grandTotalPrice.classList.add("price");
   grandTotalPrice.append(formatCurrency(grandTotal));
-  grandTotalCost.append(
-    grandTotalPrice,
-    " - due in two separate payments shown below"
-  );
+  const priceText =
+    winterTotal > 0 && fallTotal > 0
+      ? " - due in two separate payments shown below"
+      : winterTotal > 0 || fallTotal > 0
+      ? " - due in one payment shown below"
+      : "";
+  grandTotalCost.append(grandTotalPrice, priceText);
 
   const estimatedDuesSeasons = document.createElement("div");
   estimatedDuesSeasons.classList.add("estimated-dues-seasons");
