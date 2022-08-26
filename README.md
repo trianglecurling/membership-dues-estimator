@@ -2,6 +2,8 @@
 
 This is a simple web tool for potential members to estimate their dues and see benefits. It uses no framework because it is intended to be dumped onto a Joomla page using the page editor thingy.
 
+[View it running live here](https://trianglecurling.com/index.php/14-curling-info/510-membership-and-dues-structure)
+
 Integration strategy:
 1. Open style.scss. Copy contents and paste into https://sassmeister.com. Copy output and dump into a `<style>` tag.
 2. Open index.ts. Copy contents and paste into https://typescriptlang.org/play/. Copy output and dump into a `<script>` tag.
