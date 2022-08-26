@@ -9,6 +9,7 @@ type ItemType =
   | "thirdLeague"
   | "additionalLeague"
   | "basicIce"
+  | "basicIceReduced"
   | "social";
 
 interface Sku {
@@ -46,6 +47,10 @@ const items: Record<ItemType, Sku> = {
   basicIce: {
     name: "Basic ice privileges (unlimited sparing and daytime leagues)",
     cost: 115
+  },
+  basicIceReduced: {
+    name: "Basic ice privileges (unlimited sparing and daytime leagues)",
+    cost: 55
   },
   social: {
     name: "Social membership (no dues)",
@@ -93,6 +98,7 @@ const benefits = {
     "Participate in Tuesday and Wednesday Daytime Leagues at no extra cost",
   sparing: "Unlimited sparing",
   training: "Ability to register for clinics run by the Training Committee",
+  rentals: "Discounted rates on private rentals",
   clubSpiel:
     "Ability to participate in the Triangle Club Bonspiel (usually in March/April)",
   leagues: "Participate in <NUM> <PLURAL_LEAGUE>"
@@ -150,6 +156,7 @@ function getBenefits(
     fall.push("ice");
     fall.push("daytime");
     fall.push("sparing");
+    fall.push("rentals");
     fall.push("training");
   }
 
@@ -158,6 +165,7 @@ function getBenefits(
     winter.push("ice");
     winter.push("daytime");
     winter.push("sparing");
+    winter.push("rentals");
     winter.push("training");
   }
 
@@ -324,7 +332,11 @@ function getCarts(params: GetCostParams): { fall: Cart; winter: Cart } {
   // Add basic ice or social
   if (params.winterRegularLeagues === 0) {
     if (params.winterDayLeagues || params.winterSpareOnly) {
-      winterCart.addItem("basicIce");
+      if (fallCart.getLeagueCount() >= 3) {
+        winterCart.addItem("basicIceReduced");
+      } else {
+        winterCart.addItem("basicIce");
+      }
     } else if (
       params.winterSocial === "noDues" &&
       !fallCart.hasItem("social") &&
