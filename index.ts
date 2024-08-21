@@ -50,7 +50,7 @@ const items: Record<ItemType, Sku> = {
   },
   basicIceReduced: {
     name: "Basic ice privileges (unlimited sparing and daytime leagues)",
-    cost: 55
+    cost: 70
   },
   social: {
     name: "Social membership (no dues)",
