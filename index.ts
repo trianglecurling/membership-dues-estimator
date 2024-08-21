@@ -25,28 +25,28 @@ interface Discount {
 
 const items: Record<ItemType, Sku> = {
   membership: {
-    name: "2022-2023 annual base membership",
-    cost: 135
+    name: "2024-2025 annual base membership",
+    cost: 140
   },
   firstLeague: {
     name: "First league",
-    cost: 155
+    cost: 160
   },
   secondLeague: {
     name: "Second league",
-    cost: 155
+    cost: 160
   },
   thirdLeague: {
     name: "Third league",
-    cost: 155
+    cost: 160
   },
   additionalLeague: {
     name: "Additional league",
-    cost: 55
+    cost: 70
   },
   basicIce: {
     name: "Basic ice privileges (unlimited sparing and daytime leagues)",
-    cost: 115
+    cost: 120
   },
   basicIceReduced: {
     name: "Basic ice privileges (unlimited sparing and daytime leagues)",
